@@ -2,10 +2,16 @@
   "name": "gu-dev-story",
   "version": "1.0.0",
   "description": "A simulation of journalistic survival",
-  "main": "index.js",
+  "main": "app.ts",
   "author": "Richard Nguyen <richard.nguyen@guardian.co.uk>",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.2",
     "webpack": "^3.8.1"
   }
 }
