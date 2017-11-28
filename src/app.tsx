@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {Office, OfficeProps} from './office/Office';
 import {AddEmployee} from './ui/AddEmployee';
+import {AddEditorialDesk} from './ui/AddEditorialDesk';
 import {Funds} from './ui/Funds';
 import {DateTime} from './ui/DateTime';
 import update from 'immutability-helper';
@@ -22,7 +23,8 @@ class App extends React.Component<{}, {}> {
     this.state = {
       world: {
         objects: [],
-        people: []
+        people: [],
+        editorialDesks: []
       },
       funds: 10000,
       timeElapsed: 473387585,
@@ -39,6 +41,7 @@ class App extends React.Component<{}, {}> {
         <Funds funds= {this.state.funds}/>
         <DateTime timeElapsed= {this.state.timeElapsed}/>
         <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
+        <AddEditorialDesk addEditorialDesk= {() => { this.addEditorialDesk() } }/>
       </div>
     </div>;
   }
@@ -66,6 +69,18 @@ class App extends React.Component<{}, {}> {
     this.setState(update(this.state, {
         world: {people: {$push: [newEmployee]}},
         funds: {$set: this.state.funds - employeeHireCost } 
+      } ));
+  }
+
+  addEditorialDesk(){
+    const editorialDeskHireCost = 3000;
+    const newDesk = {
+      name: "editorial desk",
+      role: "journalist"
+    };
+    this.setState(update(this.state, {
+        world: {editorialDesks: {$push: [newDesk]}},
+        funds: {$set: this.state.funds - editorialDeskHireCost } 
       } ));
   }
   
