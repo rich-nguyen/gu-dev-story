@@ -3,16 +3,19 @@ import * as ReactDOM from 'react-dom';
 import {Office, OfficeProps} from './office/Office';
 import {AddEmployee} from './ui/AddEmployee';
 import {Funds} from './ui/Funds';
+import {DateTime} from './ui/DateTime';
 import update from 'immutability-helper';
 
 interface AppState extends OfficeProps {
   funds: number,
-  date: Date
+  timeElapsed: number,
+  timeSpeed: number
 }
 
 class App extends React.Component<{}, {}> {
 
   state: AppState;
+  interval: number;
 
   constructor (props) {
     super(props);
@@ -22,7 +25,8 @@ class App extends React.Component<{}, {}> {
         people: []
       },
       funds: 10000,
-      date: new Date(0)
+      timeElapsed: 473387585,
+      timeSpeed:    10000000
     };
   }
 
@@ -33,9 +37,24 @@ class App extends React.Component<{}, {}> {
       </div>
       <div className="ui">
         <Funds funds= {this.state.funds}/>
+        <DateTime timeElapsed= {this.state.timeElapsed}/>
         <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
       </div>
     </div>;
+  }
+
+  tick () {
+    this.setState(update(this.state, {
+      timeElapsed: {$set: this.state.timeElapsed + this.state.timeSpeed}
+    }));
+  }
+
+  componentDidMount () {
+    this.interval = setInterval(this.tick.bind(this), 200);
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval);
   }
 
   addEmployee(){
