@@ -10,8 +10,9 @@ module.exports = {
     output: {
         filename: "./dist/bundle.js"
     },
+    devtool: "source-map",
     resolve: {
-        extensions: [".ts"],
+        extensions: [".ts", ".tsx", ".js", ".json"],
         alias: {
           'phaser': phaser,
           'pixi': pixi,
@@ -20,13 +21,11 @@ module.exports = {
     },
     module: {
         rules: [
-            { 
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "ts-loader"
-                }
-            },
+            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+            
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
             {
                 test: /pixi\.js/,
                 loader: 'expose-loader?PIXI'
