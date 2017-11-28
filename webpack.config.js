@@ -6,7 +6,7 @@ var pixi = path.join(phaserModule, 'build/custom/pixi.js');
 var p2 = path.join(phaserModule, 'build/custom/p2.js');
 
 module.exports = {
-    entry: "./src/app.ts",
+    entry: "./src/app",
     output: {
         filename: "./dist/bundle.js"
     },
