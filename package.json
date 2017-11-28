@@ -2,7 +2,7 @@
   "name": "gu-dev-story",
   "version": "1.0.0",
   "description": "A simulation of journalistic survival",
-  "main": "app.ts",
+  "main": "app.tsx",
   "author": "Richard Nguyen <richard.nguyen@guardian.co.uk>",
   "license": "MIT",
   "scripts": {
