@@ -47,6 +47,8 @@ export class Office extends React.Component<OfficeProps, {}> {
   
     create() {
         const pic = this.game.add.sprite(0, 0, 'background');
+        this.game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+        this.game.scale.setUserScale(2.0, 2.0);
     }
 }
 
