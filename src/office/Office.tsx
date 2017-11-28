@@ -4,10 +4,12 @@ import 'pixi';
 import 'p2';
 import 'phaser';
 import {Worker} from "./worker";
+import {EditorialDesk} from "./editorialdesk";
 
 export interface World {
     objects: any[],
-    people: any[]
+    people: any[],
+    editorialDesks: any[],
 }
 
 export interface OfficeProps {
@@ -36,12 +38,17 @@ export class Office extends React.Component<OfficeProps, {}> {
             {this.props.world.people.map( (person, index) => {
                 return <Worker game={this.game} key={index}/>
             })}
+            
+            {this.props.world.editorialDesks.map( (desk, index) => {
+                return <EditorialDesk game={this.game}  key={index}/>
+            })}
         </div>
     }
 
     preload() {
         this.game.load.atlas('office-man', 'assets/characters/office-man.png', 'assets/characters/office-man.json');
         this.game.load.atlas('office-man-head', 'assets/characters/office-man-head.png', 'assets/characters/office-man-head.json');
+        this.game.load.atlas('editorial-desk', 'assets/objects/desks.png', 'assets/objects/desks.json');        
         this.game.load.image('background', 'assets/floors/floors_01.png');        
     }
   
