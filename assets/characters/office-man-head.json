@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "characters_200.png",
+	"frame": {"x":1,"y":1,"w":11,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+{
+	"filename": "characters_201.png",
+	"frame": {"x":14,"y":1,"w":11,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+{
+	"filename": "characters_202.png",
+	"frame": {"x":27,"y":1,"w":11,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+{
+	"filename": "characters_203.png",
+	"frame": {"x":40,"y":1,"w":11,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+{
+	"filename": "characters_204.png",
+	"frame": {"x":53,"y":1,"w":13,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":14},
+	"sourceSize": {"w":13,"h":14}
+},
+{
+	"filename": "characters_221.png",
+	"frame": {"x":68,"y":1,"w":11,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+{
+	"filename": "characters_223.png",
+	"frame": {"x":81,"y":1,"w":13,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":14},
+	"sourceSize": {"w":13,"h":14}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "office-man-head.png",
+	"format": "RGBA8888",
+	"size": {"w":95,"h":16},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e10781dddd75e2db320bf029925d1a91:c4c565e98ebc27e155fd7fa61c40ccbf:4d3d0fdd2f09c0c6a549473b0036b3d4$"
+}
+}
