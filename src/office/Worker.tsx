@@ -2,18 +2,40 @@ import * as React from "react";
 
 export interface WorkerProps {
     game: Phaser.Game;
+    
 }
 
 export class Worker extends React.Component<WorkerProps, {}> {
 
+    workerBody: Phaser.Sprite;
+    workerHead: Phaser.Sprite;
+    rect: Phaser.Rectangle;
+
     constructor (props) {
         super(props);
-        const worker = this.props.game.add.sprite(this.props.game.world.centerX, 100, 'office-man');
+
+        this.rect = new Phaser.Rectangle(
+            this.props.game.world.randomX,
+            this.props.game.world.randomY,
+            20,
+            20);
+
+        this.workerBody = this.props.game.add.sprite(this.rect.x, this.rect.y, 'office-man');
+        this.workerHead = this.props.game.add.sprite(this.rect.x + 1, this.rect.y - 12, 'office-man-head');    
+
+        this.workerBody.animations.add('walk-down', [0, 1]);
+        this.workerBody.animations.add('walk-up', [4, 5]);
+        this.workerBody.animations.add('sit', [2]);
         
-        worker.animations.add('walk-down', [0, 1]);
-        worker.animations.add('walk-up', [4, 5]);
-        worker.animations.add('sit', [2]);
-        worker.animations.play('walk-down', 3, true);
+        this.workerHead.animations.add('look-down',[0]);
+        this.workerHead.animations.add('look-up',[1]);
+
+        this.move();
+    }
+
+    move () {
+        this.workerBody.animations.play('walk-down', 3, true);
+        this.workerHead.animations.play('look-up', 1, false);
     }
     
     render () {

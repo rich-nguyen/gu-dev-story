@@ -41,6 +41,7 @@ export class Office extends React.Component<OfficeProps, {}> {
 
     preload() {
         this.game.load.atlas('office-man', 'assets/characters/office-man.png', 'assets/characters/office-man.json');
+        this.game.load.atlas('office-man-head', 'assets/characters/office-man-head.png', 'assets/characters/office-man-head.json');
         this.game.load.image('background', 'assets/floors/floors_01.png');        
     }
   
