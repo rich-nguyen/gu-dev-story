@@ -20,8 +20,8 @@ export class Office extends React.Component<OfficeProps, {}> {
 
     componentDidMount() {
         this.game = new Phaser.Game(
-            400,
-            300,
+            240,
+            177,
             Phaser.AUTO,
             'office',
             {
@@ -29,8 +29,6 @@ export class Office extends React.Component<OfficeProps, {}> {
               create: this.create
             }
         );
-        
-
     }
 
     render() {
@@ -47,10 +45,7 @@ export class Office extends React.Component<OfficeProps, {}> {
     }
   
     create() {
-        //this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-        
-        const pic = this.game.add.sprite(this.game.world.width, this.game.world.height, 'background');
-        pic.anchor.setTo(1,1);
+        const pic = this.game.add.sprite(0, 0, 'background');
     }
 }
 
