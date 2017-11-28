@@ -9,8 +9,10 @@
     "build": "webpack"
   },
   "dependencies": {
+    "@types/immutability-helper": "^2.0.15",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
+    "immutability-helper": "^2.5.1",
     "phaser-ce": "^2.9.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
