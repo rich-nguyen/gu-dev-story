@@ -6,6 +6,7 @@ import {AddEditorialDesk} from './ui/AddEditorialDesk';
 import {Funds} from './ui/Funds';
 import {DateTime} from './ui/DateTime';
 import update from 'immutability-helper';
+import './styles/app.scss';
 
 interface AppState extends OfficeProps {
   funds: number,

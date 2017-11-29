@@ -1,0 +1,8 @@
+
+@mixin game-font {
+    font-family: 'Press Start 2P'
+}
+
+.game-font, .funds, .date {
+    @include game-font;
+}
