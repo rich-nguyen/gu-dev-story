@@ -5,6 +5,7 @@ import {AddEmployee} from './ui/AddEmployee';
 import {AddEditorialDesk} from './ui/AddEditorialDesk';
 import {Funds} from './ui/Funds';
 import {DateTime} from './ui/DateTime';
+import {GameOver} from './ui/GameOver';
 import update from 'immutability-helper';
 import './styles/app.scss';
 
@@ -13,7 +14,8 @@ interface AppState extends OfficeProps {
   timeElapsed: number,
   timeSpeed: number,
   revenue: number,
-  costs: number
+  costs: number,
+  gameOver: boolean
 }
 
 class App extends React.Component<{}, {}> {
@@ -28,17 +30,18 @@ class App extends React.Component<{}, {}> {
         people: [],
         editorialDesks: []
       },
-      funds: 20000,
+      funds: 15000,
       costs: 11,
       revenue: 0,
       timeElapsed: 473387585,
-      timeSpeed:    10000000
+      timeSpeed:    10000000,
+      gameOver: false
     };
   }
 
   render () {
     return <div className="app">
-      <div className="office">  
+      <div className="office"> 
         <Office world = {this.state.world}/>
       </div>
       <div className="ui">
@@ -48,7 +51,11 @@ class App extends React.Component<{}, {}> {
           <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
           <AddEditorialDesk addEditorialDesk= {() => { this.addEditorialDesk() } }/>
         </div>
+        {this.state.gameOver && 
+          <GameOver elapsed={this.state.timeElapsed} />
+        }
       </div>
+      <div id="phaser-container"></div>
     </div>;
   }
 
@@ -58,13 +65,21 @@ class App extends React.Component<{}, {}> {
     
     const newRevenue = numEmployees * numDesks * 5;
     const newCosts = 11 + (numEmployees * 8);
+    const newFunds = this.state.funds + newRevenue - newCosts;
+
+    const newGameOver = newFunds <= 0;
 
     this.setState(update(this.state, {
       timeElapsed: {$set: this.state.timeElapsed + this.state.timeSpeed},
       revenue: {$set: newRevenue},
       costs: {$set: newCosts},
-      funds: {$set: this.state.funds + newRevenue - newCosts}
+      funds: {$set: newFunds },
+      gameOver: {$set: newGameOver }
     }));
+    
+    if (newGameOver) {
+      clearInterval(this.interval);
+    }
   }
 
   componentDidMount () {

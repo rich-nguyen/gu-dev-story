@@ -15,3 +15,35 @@
     margin: 5px;
     border-radius: 0;
 }
+
+.app {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.game-over {
+    @include game-font;
+    color: gainsboro;
+    background-color: firebrick;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo-the {
+    color: 	#AADCE6;
+}
+.logo-guardian {
+    color: 	#FFFFFF;
+}
+.logo {
+    background-color: #005689;
+    padding-top: 5px;
+    padding-right: 10px;
+    text-align: right;
+}
+body {
+    margin: 0;
+}

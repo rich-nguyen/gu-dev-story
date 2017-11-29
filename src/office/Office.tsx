@@ -24,7 +24,7 @@ export class Office extends React.Component<OfficeProps, {}> {
             240,
             177,
             Phaser.AUTO,
-            'office',
+            'phaser-container',
             {
               preload: this.preload,
               create: this.create
