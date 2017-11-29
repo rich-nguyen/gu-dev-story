@@ -7,7 +7,6 @@ import {Worker} from "./worker";
 import {EditorialDesk} from "./editorialdesk";
 
 export interface World {
-    objects: any[],
     people: any[],
     editorialDesks: any[],
 }

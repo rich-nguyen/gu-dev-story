@@ -11,7 +11,9 @@ import './styles/app.scss';
 interface AppState extends OfficeProps {
   funds: number,
   timeElapsed: number,
-  timeSpeed: number
+  timeSpeed: number,
+  revenue: number,
+  costs: number
 }
 
 class App extends React.Component<{}, {}> {
@@ -23,11 +25,12 @@ class App extends React.Component<{}, {}> {
     super(props);
     this.state = {
       world: {
-        objects: [],
         people: [],
         editorialDesks: []
       },
-      funds: 10000,
+      funds: 20000,
+      costs: 11,
+      revenue: 0,
       timeElapsed: 473387585,
       timeSpeed:    10000000
     };
@@ -39,7 +42,7 @@ class App extends React.Component<{}, {}> {
         <Office world = {this.state.world}/>
       </div>
       <div className="ui">
-        <Funds funds= {this.state.funds}/>
+        <Funds funds= {this.state.funds} costs= {this.state.costs} revenue= {this.state.revenue}/>
         <DateTime timeElapsed= {this.state.timeElapsed}/>
         <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
         <AddEditorialDesk addEditorialDesk= {() => { this.addEditorialDesk() } }/>
@@ -48,8 +51,17 @@ class App extends React.Component<{}, {}> {
   }
 
   tick () {
+    const numEmployees = this.state.world.people.length;
+    const numDesks = this.state.world.editorialDesks.length;
+    
+    const newRevenue = numEmployees * numDesks * 5;
+    const newCosts = 11 + (numEmployees * 8);
+
     this.setState(update(this.state, {
-      timeElapsed: {$set: this.state.timeElapsed + this.state.timeSpeed}
+      timeElapsed: {$set: this.state.timeElapsed + this.state.timeSpeed},
+      revenue: {$set: newRevenue},
+      costs: {$set: newCosts},
+      funds: {$set: this.state.funds + newRevenue - newCosts}
     }));
   }
 

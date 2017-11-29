@@ -7,8 +7,10 @@ export interface DateTimeProps {
 export class DateTime extends React.Component<DateTimeProps, {}> {
     render () {
         const date = new Date(this.props.timeElapsed);
+        const hours = ("0" + date.getHours()).slice(-2);
+        const minutes = ("0" + date.getMinutes()).slice(-2);
         return <span className="date">
-            {date.getHours()}:{date.getMinutes()} {date.toDateString()}
+            {hours}:{minutes} {date.toDateString()}
         </span>
     }
 }
