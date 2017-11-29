@@ -21,7 +21,9 @@ export class Worker extends React.Component<WorkerProps, {}> {
             20);
 
         this.workerBody = this.props.game.add.sprite(this.rect.x, this.rect.y, 'office-man');
-        this.workerHead = this.props.game.add.sprite(this.rect.x + 1, this.rect.y - 12, 'office-man-head');    
+        this.workerHead = this.props.game.add.sprite(1, - 12, 'office-man-head');
+
+        this.workerBody.addChild(this.workerHead);
 
         this.workerBody.animations.add('walk-down', [0, 1]);
         this.workerBody.animations.add('walk-up', [4, 5]);
@@ -29,6 +31,10 @@ export class Worker extends React.Component<WorkerProps, {}> {
         
         this.workerHead.animations.add('look-down',[0]);
         this.workerHead.animations.add('look-up',[1]);
+
+        this.workerBody.inputEnabled = true;
+        this.workerBody.input.enableDrag(true, true, true);
+        this.workerBody.input.enableSnap(12, 12);
 
         this.move();
     }
