@@ -15,8 +15,8 @@ export class Worker extends React.Component<WorkerProps, {}> {
         super(props);
 
         this.rect = new Phaser.Rectangle(
-            this.props.game.world.randomX,
-            this.props.game.world.randomY,
+            this.props.game.world.centerX,
+            this.props.game.world.centerY,
             20,
             20);
 
