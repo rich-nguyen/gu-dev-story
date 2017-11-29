@@ -6,10 +6,10 @@ export interface AddEditorialDeskProps {
 
 export class AddEditorialDesk extends React.Component<AddEditorialDeskProps, {}> {
     render () {
-        return <div className="button--add-editorial-desk">
-            <button onClick={this.props.addEditorialDesk}>
-                Add editorial desk
+        return <span className="add-editorial-desk">
+            <button className="button" onClick={this.props.addEditorialDesk}>
+                <span>Add editorial desk</span>
             </button>
-        </div>
+        </span>
     }
 }

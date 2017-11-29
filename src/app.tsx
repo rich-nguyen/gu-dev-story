@@ -44,8 +44,10 @@ class App extends React.Component<{}, {}> {
       <div className="ui">
         <Funds funds= {this.state.funds} costs= {this.state.costs} revenue= {this.state.revenue}/>
         <DateTime timeElapsed= {this.state.timeElapsed}/>
-        <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
-        <AddEditorialDesk addEditorialDesk= {() => { this.addEditorialDesk() } }/>
+        <div>
+          <AddEmployee addEmployee= {() => { this.addEmployee() } }/>
+          <AddEditorialDesk addEditorialDesk= {() => { this.addEditorialDesk() } }/>
+        </div>
       </div>
     </div>;
   }

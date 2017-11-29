@@ -6,3 +6,12 @@
 .game-font, .funds, .date {
     @include game-font;
 }
+
+.button {
+    span {
+        @include game-font;
+    }
+    padding: 5px;
+    margin: 5px;
+    border-radius: 0;
+}

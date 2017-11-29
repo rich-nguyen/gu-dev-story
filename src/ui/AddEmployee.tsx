@@ -6,10 +6,10 @@ export interface AddEmployeeProps {
 
 export class AddEmployee extends React.Component<AddEmployeeProps, {}> {
     render () {
-        return <div className="button--add-employee">
-            <button onClick={this.props.addEmployee}>
-                Add employee
+        return <span className="add-employee">
+            <button className="button" onClick={this.props.addEmployee}>
+                <span>Add employee</span>
             </button>
-        </div>
+        </span>
     }
 }
